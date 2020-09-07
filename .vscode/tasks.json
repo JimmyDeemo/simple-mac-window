@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+		{
+			"type": "shell",
+			"label": "Build osx_main",
+			"command": "/usr/bin/clang",
+			"args": [
+				"-g",
+				"-o",
+				"builds/handmade",
+				"code/osx_main.mm"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
