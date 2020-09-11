@@ -7,8 +7,8 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug",
-            "program": "${workspaceFolder}/builds/handmade",
+            "name": "Run",
+            "program": "${workspaceFolder}/build/simple-mac-window",
             "args": [],
             "cwd": "${workspaceFolder}"
         }
