@@ -39,11 +39,13 @@ int main(int argc, const char * argv[]) {
     [window makeKeyAndOrderFront: nil];
     [window setDelegate: mainWindowDelegate];
 
+	[NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
+
     while(Running) {
         NSEvent* event;
         do {
             event = [NSApp nextEventMatchingMask: NSEventMaskAny
-            untilDate: nil
+            untilDate: [NSDate distantFuture]
             inMode: NSDefaultRunLoopMode
             dequeue: YES];
 
