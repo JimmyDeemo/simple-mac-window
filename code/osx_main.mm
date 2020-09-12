@@ -4,7 +4,6 @@
 
 static float GlobalRenderWidth = 1024;
 static float GlobalRenderHeight = 768;
-static bool Running = true;
 
 //Declare an interface that inherits from NSObject and implements NSWindowDelegate.
 @interface SimpleMainWindowDelegate: NSObject<NSWindowDelegate>
@@ -12,7 +11,8 @@ static bool Running = true;
 @implementation SimpleMainWindowDelegate
 
 - (void)windowWillClose:(id)sender {
-    Running = false;
+    [NSApp terminate:self];
+	printf("Terminating simple-mac-window.");
 }
 
 @end
@@ -41,7 +41,7 @@ int main(int argc, const char * argv[]) {
 
 	[NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
 
-    while(Running) {
+    while(true) {
         NSEvent* event;
         do {
             event = [NSApp nextEventMatchingMask: NSEventMaskAny
@@ -55,6 +55,4 @@ int main(int argc, const char * argv[]) {
             }
         } while (event != nil);
     }
-
-    printf("Finished running simple-mac-window.");
 }
